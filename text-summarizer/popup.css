@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  width: 300px;
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+#container {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  background: white;
+}
+
+h2 {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+#output {
+  white-space: pre-wrap;
+  font-size: 14px;
+}
