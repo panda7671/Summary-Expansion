@@ -12,6 +12,11 @@ app.use(express.json());
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+if (!OPENAI_API_KEY) {
+  console.error('❌ OPENAI_API_KEY 환경 변수가 설정되지 않았습니다.');
+  process.exit(1);
+}
+
 // ✅ 자동 재시도 함수 (429 Too Many Requests 시)
 async function gptWithRetry(requestBody, retries = 2, delayMs = 2000) {
   const url = "https://api.openai.com/v1/chat/completions";
