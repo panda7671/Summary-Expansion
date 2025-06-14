@@ -1,4 +1,3 @@
-// index.js
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -89,7 +88,7 @@ app.post("/gpt", async (req, res) => {
   };
 
   try {
-    const response = await gptWithRetry(requestBody, 2); // 최대 2회 재시도
+    const response = await gptWithRetry(requestBody, 2);
     const data = await response.json();
     res.json(data);
   } catch (err) {
@@ -97,7 +96,8 @@ app.post("/gpt", async (req, res) => {
   }
 });
 
-const PORT = 3000;
+// ✅ Render 호환 포트 설정
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 GPT 프록시 서버 실행 중: http://localhost:${PORT}`);
 });
